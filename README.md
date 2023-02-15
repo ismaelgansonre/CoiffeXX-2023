@@ -1,17 +1,23 @@
 # Coiffex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+Réalisé par Winner, Ismael et Quentin
 
-## Development server
+##  Description
 
-Run `npm install ` to install all dependencies and then :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Lancement du projet
 
-## Code scaffolding
+Installation des dépandances
+```
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lancement du serveur
+```
+ng serve
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Compilation du projet
+```
+ng build
+```
