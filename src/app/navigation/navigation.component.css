@@ -1,0 +1,39 @@
+
+header{
+    position: fixed;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    text-transform: uppercase;
+    background-color: #202020;
+    color: white;
+    padding: 0 5%;
+    font-size: 25px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0 20px;
+    padding: 2% 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:20px;
+    font-weight: 700;
+}
+h5{
+    margin: 2% 0;
+}
