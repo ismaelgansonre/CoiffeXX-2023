@@ -21,10 +21,16 @@ export class UsersService {
       offers: [], 
       reservations: []
     };
+
+    this.addUser(user);
   }
 
   public addUser(newUser: User): void {
     this.users.push(newUser);
+  }
+
+  public getUsers(): User[] {
+    return this.users;
   }
 
   public getUserById(id: number): User | undefined {
@@ -33,5 +39,13 @@ export class UsersService {
 
   public checkIfUserNameTaken(username: string): boolean {
     return this.users.some(user => user.username == username);
+  }
+
+  public login(username: string, password: string): User | boolean {
+    const user = this.users.find(user => user.username == username);
+    if (user && user.passwordHash == password) {
+      return user;
+    }
+    return false;
   }
 }

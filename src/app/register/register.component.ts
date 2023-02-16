@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { User } from '../models/User';
 import { UsersService } from '../users.service';
@@ -19,7 +20,7 @@ export class RegisterComponent {
     localisation: new FormControl('', [Validators.required, Validators.minLength(2)])
   });
 
-  constructor(public service: UsersService) { }
+  constructor(public service: UsersService, public router: Router) { }
 
   public register(): void {
     if(this.form.valid) {
@@ -35,6 +36,8 @@ export class RegisterComponent {
       };
   
       this.service.addUser(newUser);
+      alert('Inscription réussie ! Bienvenue ' + newUser.username + ' !');
+      this.router.navigate(['/login']);
     }
   }
 
