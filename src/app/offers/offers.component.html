@@ -1,1 +1,24 @@
-<p>offers works!</p>
+<h1 class="text-4xl font-extrabold dark:text-white">Offres disponibles dans votre région :</h1>
+<div id="center-container">
+    <div id="offers-container">
+        <div class="offer" *ngFor="let offer of this.service.getOffers();">
+            <div class="offer-header">
+                <h2 class="text-2xl font-bold dark:text-white">{{offer.name}}</h2>
+                <img class="offer-image" src="{{offer.imageURL}}" alt="Image de l'offre">
+            </div>
+            <div class="offer-body">
+                <p class="text-xl dark:text-white">Prix : {{offer.price}}$</p>
+                <p class="text-xl dark:text-white">Durée : {{offer.duration}} minutes</p>
+                <p class="text-xl dark:text-white">Adresse : {{offer.localisation}}</p>
+            </div>
+            <div class="offer-footer">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            routerLinkActive="true"
+                            [routerLink]="'/offers/' + offer.id"
+                    >
+                            Détails
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>

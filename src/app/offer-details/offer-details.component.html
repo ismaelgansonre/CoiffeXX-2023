@@ -1,0 +1,19 @@
+<div *ngIf="this.offer !== undefined" id="offer-container">
+    <h1 class="text-4xl font-extrabold dark:text-white">{{this.offer.name}}</h1>
+    <div id="offer-details">
+        <div id="offer-image-container">
+            <img id="offer-image" src="{{this.offer.imageURL}}" alt="Image de l'offre">
+        </div>
+        <div id="offer-description">
+            <p class="text-xl dark:text-white">{{this.offer.description}}</p>
+            <p class="text-xl dark:text-white">Prix : {{this.offer.price}}$</p>
+            <p class="text-xl dark:text-white">Durée : {{this.offer.duration}} minutes</p>
+            <p class="text-xl dark:text-white">Adresse : {{this.offer.localisation}}</p>
+        </div>
+    </div>
+    <a id="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLinkActive="true" routerLink="/offers">Retour aux offres</a>
+</div>
+<div *ngIf="this.offer == undefined">
+    <h1 text-4xl font-extrabold dark:text-white>Erreur !</h1>
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLinkActive="true" routerLink="/offers">Retour aux offres</a>
+</div>
