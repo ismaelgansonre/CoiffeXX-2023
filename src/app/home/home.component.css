@@ -1,0 +1,39 @@
+#banner {
+    height: 85vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+#banner-overlay {
+    left: 0;
+    top: 15vh;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#arrow-container {
+    margin-bottom: 20vh;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#arrow-container:hover {
+    height: 22vh;
+    width: 22vh;
+
+    transition: 0.1s;
+}
+
+#arrow-container:active {
+    height: 18vh;
+    width: 18vh;
+
+    transition: 0.1s;
+}

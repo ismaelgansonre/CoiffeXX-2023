@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BannerComponent } from './banner/banner.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
 
+import { HomeComponent } from './home/home.component';
+import { OffersComponent } from './offers/offers.component';
+import { OfferDetailsComponent } from './offer-details/offer-details.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path:'footer',component:FooterComponent},
-  {path:'banner',component:BannerComponent},
-  {path:'navigation',component:NavigationComponent},
+  {path:'', component:HomeComponent},
+  {path:'offers', component:OffersComponent},
+  {path:'offers/:id', component:OfferDetailsComponent},
+  {path:'register', component:RegisterComponent},
+  {path:'login', component:LoginComponent}
 ];
 
 @NgModule({

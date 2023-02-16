@@ -1,10 +1,16 @@
 <header>
     <nav>
-        <h5>CoiffeX</h5>
-        <ul>
-            <li><a>Accueil</a></li>
-            <li><a>Profil</a></li>
-            <li><a>Login</a></li>
-        </ul>
+        <div id="logo-title-container">
+            <img id="logo" src="assets/logo_transparent.webp" alt="Logo de CoiffeX">
+            <h5 id="title">CoiffeX</h5>
+        </div>
+        <div id="nav-links-container">
+            <ul>
+                <li><a routeLinkActive="true" [routerLink]="'/'">Accueil</a></li>
+                <li><a routeLinkActive="true" [routerLink]="'/offers'">Offres</a></li>
+                <li><a routeLinkActive="true" [routerLink]="'/register'">Inscription</a></li>
+                <li><a routeLinkActive="true" [routerLink]="'/login'">Connexion</a></li>
+            </ul>
+        </div>
     </nav>
 </header>
