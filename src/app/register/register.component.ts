@@ -22,15 +22,20 @@ export class RegisterComponent {
   constructor(public service: UsersService) { }
 
   public register(): void {
-    let newUser: User = {
-      id: Math.random(),
-      username: this.form.value.username,
-      email: this.form.value.email,
-      passwordHash: this.form.value.password,
-      accountType: this.form.value.accountType,
-      offers: [],
-      reservations: []
-    };
+    if(this.form.valid) {
+      
+      let newUser: User = {
+        id: Math.random(),
+        username: this.form.value.username,
+        email: this.form.value.email,
+        passwordHash: this.form.value.password,
+        accountType: this.form.value.accountType,
+        offers: [],
+        reservations: []
+      };
+  
+      this.service.addUser(newUser);
+    }
   }
 
 }
