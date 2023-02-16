@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { User } from '../models/User';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-register',
@@ -10,20 +12,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegisterComponent {
 
   public form: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    accountType: new FormControl('', Validators.required)
+    username: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    accountType: new FormControl('Client', Validators.required),
+    localisation: new FormControl('', [Validators.required, Validators.minLength(2)])
   });
 
-  constructor() { }
-
-  public preventSubmit(event: any): void {
-    event.preventDefault();
-  }
+  constructor(public service: UsersService) { }
 
   public register(): void {
-    console.log(this.form.value);
+    let newUser: User = {
+      id: Math.random(),
+      username: this.form.value.username,
+      email: this.form.value.email,
+      passwordHash: this.form.value.password,
+      accountType: this.form.value.accountType,
+      offers: [],
+      reservations: []
+    };
   }
 
 }

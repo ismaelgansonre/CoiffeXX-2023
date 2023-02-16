@@ -7,7 +7,7 @@
                 </label>
                 <input
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-last-name" type="text">
+                    id="grid-last-name" type="text" formControlName="username">
             </div>
             <div class="w-full md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -15,7 +15,7 @@
                 </label>
                 <input
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-last-name" type="email">
+                    id="grid-last-name" type="email" formControlName="email">
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -25,7 +25,7 @@
                 </label>
                 <input
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password" type="password" placeholder="******************">
+                    id="grid-password" type="password" placeholder="******************" formControlName="password">
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-2">
@@ -34,7 +34,7 @@
                     Type de compte
                 </label>
                 <div class="relative">
-                    <select
+                    <select formControlName="accountType"
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-state">
                         <option>Client</option>
@@ -53,11 +53,31 @@
                 </label>
                 <input
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-zip" type="text" placeholder="Trois-Rivières">
+                    id="grid-zip" type="text" placeholder="Trois-Rivières" formControlName="localisation">
             </div>
         </div>
-        <button id="submit" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button id="submit" type="submit" [disabled]="!this.form.valid"  [ngClass]="{'disabled:opacity-25': !this.form.valid }"class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             S'inscrire
         </button>
+        <div *ngIf="this.form.controls['username'].errors">
+            <div *ngIf="this.form.controls['username'].dirty && form.controls['username']!.errors['minlength']" class="text-red-500">
+                Le nom d'utilisateur doit contenir au moins 3 caractères.    
+            </div>
+        </div>
+        <div *ngIf="this.form.controls['email'].errors">
+            <div *ngIf="this.form.controls['email'].dirty && form.controls['email']!.errors['email']" class="text-red-500">
+                L'adresse email n'est pas valide.
+            </div>
+        </div>
+        <div *ngIf="this.form.controls['password'].errors">
+            <div *ngIf="this.form.controls['password'].dirty && form.controls['password']!.errors['minlength']" class="text-red-500">
+                Le mot de passe doit contenir au moins 8 caractères.
+            </div>
+        </div>
+        <div *ngIf="this.form.controls['localisation'].errors">
+            <div *ngIf="this.form.controls['localisation'].dirty && form.controls['localisation']!.errors['minlength']" class="text-red-500">
+                La localisation doit contenir au moins 3 caractères.
+            </div>
+        </div>
     </form>
 </div>
